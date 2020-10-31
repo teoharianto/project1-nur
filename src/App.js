@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Typical from 'react-typical'
 import './App.css';
 import '@csstools/normalize.css';
@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelopeOpenText, faDownload } from '@fortawesome/free-solid-svg-icons';
 import mycv from './assets/mycv.pdf';
+import BIRDS from 'vanta/dist/vanta.birds.min';
+import * as THREE from 'three';
 
 const App = (props) => {
   const [activeTab, setActiveTab] = useState('1');
@@ -19,9 +21,35 @@ const App = (props) => {
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   }
+  const [vantaEffect, setVantaEffect] = useState(0)
+  const myRef = useRef(null)
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(BIRDS({
+        THREE,
+        el: myRef.current,
+        mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color1: 0x0,
+  color2: 0x5a3fa,
+  birdSize: 1.20,
+  separation: 13.00,
+  quantity: 2.00,
+  backgroundAlpha: 0.00
+      }))
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy()
+    }
+  }, [vantaEffect])
   return (
     <div>
-      <div className="jumbotronDiv">
+      <div className="jumbotronDiv" ref={myRef}>
         <Container >
           <Row className="jumbotronRow">
             {/*  */}
@@ -29,8 +57,7 @@ const App = (props) => {
               <h1 className="display-3 font-hello-world">Hello, world!</h1>
               <p className="lead rowParagraphJumbotron">
                 <Typical
-                  steps={['Welcome to my website, my name is Nur Fitriyyah and you can call me "Fitri". Let\'s enjoy this website together and I will tell you the story about my life.', 500]}
-                  wrapper="p"
+                  steps={['Welcome to my website, my name is Nur Fitriyyah and you can call me "Fitri". Let\'s enjoy this website together and I will tell you the story about my life.', 1000]}
                 />
               </p>
               <hr className="my-2" />
@@ -43,7 +70,7 @@ const App = (props) => {
           </Row>
         </Container>
       </div>
-      <Container >
+      <Container>
         <Row className="jumbotronRow">
           {/*  */}
           <Col xs="1" sm="2" className="jumbotronCol">
@@ -61,7 +88,7 @@ const App = (props) => {
                   className={classnames({ active: activeTab === '1' })}
                   onClick={() => { toggle('1'); }}
                 >
-                  Triguna
+                  TIP
           </NavLink>
               </NavItem>
               <NavItem>

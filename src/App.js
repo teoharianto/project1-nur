@@ -37,7 +37,7 @@ const App = (props) => {
   scaleMobile: 1.00,
   color1: 0x0,
   color2: 0x5a3fa,
-  birdSize: 1.20,
+  birdSize: 1.40,
   separation: 13.00,
   quantity: 2.00,
   backgroundAlpha: 0.00

@@ -50,7 +50,9 @@ const App = (props) => {
             <img src={PhotoProfile} className="roundedPic" alt="rounded_pic" />
             <br />
             <p className="fontAwesomeSetting"><a href="mailto:fitriyyah.nur@gmail.com" target="_blank"><FontAwesomeIcon icon={faEnvelopeOpenText} size="lg" /></a></p>
+            <p className="subfontAwesomeSetting">Mail me!</p>
             <p className="fontAwesomeSetting"><a href={mycv} target="_blank"><FontAwesomeIcon icon={faDownload} size="lg" /></a></p>
+            <p className="subfontAwesomeSetting">My CV</p>
           </Col>
           <Col xs="11" sm="10" className="jumbotronCol">
             <Nav tabs>

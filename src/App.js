@@ -10,7 +10,8 @@ import classnames from 'classnames';
 import Sidebar from './components/sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelopeOpenText, faDownload } from '@fortawesome/free-solid-svg-icons';
+import mycv from './assets/mycv.pdf';
 
 const App = (props) => {
   const [activeTab, setActiveTab] = useState('1');
@@ -48,8 +49,8 @@ const App = (props) => {
           <Col xs="1" sm="2" className="jumbotronCol">
             <img src={PhotoProfile} className="roundedPic" alt="rounded_pic" />
             <br />
-            <p className="fontAwesomeSetting"><a href="https://instagram.com" target="_blank"><FontAwesomeIcon icon={faInstagram} size="lg" /></a></p>
             <p className="fontAwesomeSetting"><a href="mailto:fitriyyah.nur@gmail.com" target="_blank"><FontAwesomeIcon icon={faEnvelopeOpenText} size="lg" /></a></p>
+            <p className="fontAwesomeSetting"><a href={mycv} target="_blank"><FontAwesomeIcon icon={faDownload} size="lg" /></a></p>
           </Col>
           <Col xs="11" sm="10" className="jumbotronCol">
             <Nav tabs>
